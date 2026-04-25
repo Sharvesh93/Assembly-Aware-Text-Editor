@@ -1,119 +1,88 @@
-# 🧠 Assembly-Aware Text Editor
+Abstract
 
-## 📌 Overview
+Assembly-Aware Text Editor is a special text editor that is specifically designed for working with assembly code. It offers syntax-awareness, structure-aware editing, and associated tools that are meant to aid productivity when developing low-level software.
 
-**Assembly-Aware Text Editor** is a specialized text editor designed for working with assembly language code.
-It provides syntax awareness, structured editing, and tooling to improve productivity when writing low-level programs.
+Introduction
 
----
+Assembly-Aware Text Editor has features like syntax highlighting, assembly-awareness of such things as labels, instructions, and directives, a fast and light weight editor, ability to open/save files, and an easy to use interface. If possible, any mechanism of error detection or validation can be included to increase accuracy.
 
-## ✨ Features
+System Overview
 
-* 🧾 Syntax highlighting for assembly code
-* 🧠 Assembly-aware parsing (labels, instructions, directives)
-* ⚡ Fast and lightweight editor
-* 📂 File open/save support
-* 🔍 Error detection / validation (if implemented)
-* 🖥️ Simple and clean UI
+Features
 
----
+- Syntax highlighting adapted for assembly language
+- Assembly-awareness of labels, instructions, and directives
+- Fast and light weight performance
+- Ability to open and save files
+- Error detection/validation (if included)
+- Easy to use interface
 
-## 🏗️ Project Structure
+Project Structure
 
-```bash
-.
-├── src/                # Source code
-├── assets/             # UI assets (if any)
-├── main.py / main.cpp  # Entry point
-├── requirements.txt    # Dependencies (if Python)
-└── README.md
-```
+The following is the standard format of a project directory in the repository:
 
----
+- src/: source code
+- assets/: UI assets (if used)
+- main.py or main.cpp: program entry point
+- requirements.txt: dependencies (if using Python implementation)
+- README.md
 
-## ⚙️ Installation
+Installation
 
-### 🔹 Clone the repository
+Repository Acquisition
 
-```bash
-git clone https://github.com/your-username/Assembly-Aware-Text-Editor.git
-cd Assembly-Aware-Text-Editor
-```
+- Clone the repository using the provided link
+- Change directory to the project folder
 
-### 🔹 Install dependencies (if Python)
+Dependency Installation (if applicable)
 
-```bash
-pip install -r requirements.txt
-```
+- If using Python implementation, install required dependencies: pip install -r requirements.txt
 
----
+Usage
 
-## ▶️ Usage
+Launch Editor
 
-### Run the editor:
+- To launch an interpreted implementation of the editor: python main.py
+- To launch a compiled version: ./editor
 
-```bash
-python main.py
-```
+Operation
 
-or (if compiled language):
+- Editor breaks assembly code into tokens like instructions, registers, and labels
+- Implements syntax highlighting based on the rules applied to the editor
+- Keeps track of structure for editing convenience
+- Optional instruction/syntax validation capability
 
-```bash
-./editor
-```
+Features of the Supported Assembly
 
----
+- Labels (such as LOOP:)
+- Instructions (like MOV, ADD, etc.)
+- Registers (like AX, BX, etc.)
+- Directives (.data, .text, etc.)
 
-## 🧠 How It Works
+Technologies
 
-* Parses assembly code into tokens (instructions, registers, labels)
-* Applies syntax highlighting rules
-* Tracks structure for better editing experience
-* Optionally validates instructions and syntax
+- Programming Language: (Python/C++)
+- GUI framework: (Tkinter/Qt)
+- Tokenization/Parsing: (custom/tokenizer/parser)
 
----
+Limitations
 
-## 📂 Supported Assembly Features
+- Limited support for some assembly languages (e.g. x86)
+- Limited debugging capability (if included)
+- No full assembler/compilation support
 
-* Labels (`LOOP:`)
-* Instructions (`MOV`, `ADD`, etc.)
-* Registers (`AX`, `BX`, etc.)
-* Directives (`.data`, `.text`, etc.)
+Future Work
 
----
+- Adding assembler/compiler support
+- Implementing debugger
+- Instruction auto-complete feature
+- Plugin architecture
+- Multi-file project support
 
-## 🛠️ Technologies Used
-
-* Programming Language: (Python / C++ / etc.)
-* GUI Framework: (Tkinter / Qt / etc.)
-* Parsing Logic: Custom tokenizer / parser
-
----
-
-## ⚠️ Limitations
-
-* May support only specific assembly dialect (e.g., x86)
-* Limited debugging capabilities
-* No full compiler integration (if not implemented)
-
----
-
-## 🚀 Future Improvements
-
-* Integrated assembler / compiler
-* Debugger support
-* Auto-completion for instructions
-* Plugin system
-* Multi-file project support
-
----
-
-## 👨‍💻 Author
+Author
 
 Sharvesh
 
----
+License
 
-## 📜 License
-
-This project is open-source and available under the MIT License.
+This project is free and open-source software (FOSS) available under MIT license.
