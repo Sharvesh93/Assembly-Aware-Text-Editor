@@ -9,6 +9,7 @@ from src.emu_bridge import EmuBridge
 from src.error_panel import ErrorPanel
 from src.line_numbers import LineNumbers
 from src.instruction_ref import InstructionTooltip
+from src.code_analysis_panel import CodeAnalysisPanel
 _TEMPLATE = """
 
 org 100h
@@ -138,6 +139,15 @@ class AsmEditorApp(tk.Tk):
             fg=C["fg"],
         )
         pane.add(self._err_panel, minsize=120)
+        self._analysis_panel = CodeAnalysisPanel(
+            pane,
+            self._text,
+            font_ui=self._ui_font,
+            font_small=self._small_font,
+            bg=C["bg"],
+            fg=C["fg"],
+        )
+        pane.add(self._analysis_panel, minsize=150)
         self._text.tag_configure("error_line", underline=True, foreground=C["err_ul"])
         self._text.tag_configure("warn_line", underline=True, foreground=C["warn_ul"])
         sb = tk.Frame(self, bg=C["bg"], height=26)
@@ -202,6 +212,7 @@ class AsmEditorApp(tk.Tk):
         self._update_segment_and_map()
         self._line_nums.redraw()
         self._highlighter.highlight()
+        self._analysis_panel.refresh()
         if self._lint_job:
             self.after_cancel(self._lint_job)
         self._lint_job = self.after(self.LINT_DELAY_MS, self._run_lint)
@@ -252,6 +263,7 @@ class AsmEditorApp(tk.Tk):
         self._set_title("Untitled.asm")
         self._highlighter.highlight()
         self._run_lint()
+        self._analysis_panel.refresh()
         self._line_nums.redraw()
         self._update_segment_and_map()
 
@@ -278,6 +290,7 @@ class AsmEditorApp(tk.Tk):
         self._set_title(os.path.basename(path))
         self._highlighter.highlight()
         self._run_lint()
+        self._analysis_panel.refresh()
         self._line_nums.redraw()
         self._update_segment_and_map()
 
